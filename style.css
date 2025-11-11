@@ -1,0 +1,179 @@
+/* Globale Stile & Body */
+body {
+    font-family: 'Inter', sans-serif; /* Moderne Schriftart */
+    background: linear-gradient(135deg, #f0f2f5 0%, #e0e4eb 100%); /* Sanfter Farbverlauf im Hintergrund */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+    -webkit-font-smoothing: antialiased; /* Bessere Schriftglättung */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Um die 'Inter' Schriftart zu nutzen, füge dies am Anfang deines HTML <head> ein: */
+/* <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"> */
+
+
+/* To-Do-Container */
+.todo-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 18px; /* Stärker abgerundete Ecken */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Deutlicherer, aber weicherer Schatten */
+    width: 100%;
+    max-width: 500px; /* Etwas breiterer Container */
+    position: relative;
+    overflow: hidden; /* Für mögliche Hintergrund-Effekte */
+    animation: fadeIn 0.8s ease-out; /* Animation beim Laden */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Titel */
+h1 {
+    color: #2c3e50; /* Dunklerer, seriöser Farbton */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em; /* Größerer Titel */
+    font-weight: 700; /* Kräftiger */
+    letter-spacing: -0.5px;
+}
+
+/* Eingabegruppe */
+.input-group {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+#taskInput {
+    flex-grow: 1;
+    padding: 14px 20px;
+    border: 1px solid #e0e6ed; /* Dezenterer Rahmen */
+    border-radius: 9px 0 0 9px;
+    font-size: 1.1em;
+    outline: none;
+    transition: all 0.3s ease; /* Sanftere Übergänge */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Leichter Innenschatten */
+}
+
+#taskInput::placeholder {
+    color: #aebfd4;
+}
+
+#taskInput:focus {
+    border-color: #4a90e2; /* Hellerer Blau-Akzent bei Fokus */
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); /* Ring-Effekt bei Fokus */
+    background-color: #fcfdff;
+}
+
+#addTaskBtn {
+    padding: 14px 25px;
+    background-color: #4a90e2; /* Kräftigeres, modernes Blau */
+    color: white;
+    border: none;
+    border-radius: 0 9px 9px 0;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.2); /* Schatten für den Button */
+}
+
+#addTaskBtn:hover {
+    background-color: #357bd8;
+    transform: translateY(-2px); /* Leichter "Pop"-Effekt beim Hover */
+    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.3);
+}
+
+#addTaskBtn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(74, 144, 226, 0.2);
+}
+
+/* Aufgabenliste */
+#taskList {
+    list-style: none;
+    padding: 0;
+}
+
+#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    background-color: #fcfdff; /* Sehr heller Hintergrund für Listenelemente */
+    border-radius: 10px;
+    border-left: 6px solid #4a90e2; /* Kräftigerer Akzentstreifen */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07); /* Dezenter Schatten für jedes Element */
+    transition: all 0.4s ease; /* Übergang für Änderungen */
+    font-size: 1.05em;
+    color: #4b5f75;
+}
+
+#taskList li:last-child {
+    margin-bottom: 0; /* Kein Margin am letzten Element */
+}
+
+#taskList li span {
+    flex-grow: 1;
+    cursor: pointer; /* Zeigt an, dass der Text klickbar ist */
+    padding-right: 10px; /* Abstand zum Lösch-Button */
+}
+
+#taskList li.completed {
+    background-color: #e6f7ff; /* Noch hellerer Hintergrund für erledigte Aufgaben */
+    opacity: 0.8;
+    border-left: 6px solid #2ecc71; /* Frisches Grün für erledigt */
+    text-decoration: line-through;
+    color: #8c9faf;
+    font-style: italic;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); /* Weniger Schatten bei erledigt */
+}
+
+/* Lösch-Button */
+.delete-btn {
+    background: none;
+    border: none;
+    color: #e74c3c; /* Kräftiges Rot */
+    cursor: pointer;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: color 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
+    padding: 5px; /* Klickfläche vergrößern */
+}
+
+.delete-btn:hover {
+    color: #c0392b; /* Dunkleres Rot beim Hover */
+    opacity: 1;
+    transform: scale(1.1); /* Leichter Vergrößerungseffekt */
+}
+
+.delete-btn:active {
+    transform: scale(1.0);
+}
+
+/* Optional: Scrollbar anpassen (nur für Webkit-Browser) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
